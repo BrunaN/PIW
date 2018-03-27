@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Post } from './../post-model/post.model';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-post',
@@ -7,10 +8,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  constructor() { }
+  @Input() post: Post;
+  @Output() recebeuLike= new EventEmitter();
+
+  constructor() {}
 
   ngOnInit() {
   }
-  @Input() amigo: string;
-  @Input() mensagem: string;
+
+  like(){
+    this.post.qtdLikes ++;
+    this.recebeuLike.emit(this.post);
+  }
+
 }

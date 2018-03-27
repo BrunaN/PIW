@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { NavegadorComponent } from './navegador/navegador.component';
 import { PostComponent } from './post/post.component';
 import { LinhaDoTempoComponent } from './linha-do-tempo/linha-do-tempo.component';
+import { PostInputComponent } from './post-input/post-input.component';
+import { routing } from './app.routing';
 
 
 @NgModule({
@@ -13,10 +15,12 @@ import { LinhaDoTempoComponent } from './linha-do-tempo/linha-do-tempo.component
     AppComponent,
     NavegadorComponent,
     PostComponent,
-    LinhaDoTempoComponent
+    LinhaDoTempoComponent,
+    PostInputComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,20 @@
 <div class="panel panel-default">
-  <div class="panel-heading">
-    {{ amigo }}
-  </div>
-  <div class="panel-body">
-    {{ mensagem }}
-  </div>
+    <div class="panel-heading">
+        {{ post.nomePessoa }}
+    </div>
+    <div class="panel-body">
+        {{ post.texto }}
+    </div>
+    <div class="panel-footer">
+        <button type="button" class="btn btn-default" 
+            (click)="like()">
+            <span class="glyphicon glyphicon-thumbs-up"></span>
+            {{ post.qtdLikes}}
+        </button>
+        <button type="button" class="btn btn-default"
+        >
+        <!-- (click)="excluirPost() -->
+            <span class="glyphicon glyphicon-trash"></span>
+        </button>
+    </div>
 </div>

@@ -1,9 +1,11 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <app-post amigo="Bruna" mensagem="OI A TOD@S"></app-post>
+  <div class="col-md-8 col-md-offset-2" *ngFor="let post of posts">
+    <!-- <app-post post.nomePessoa="Bruna" mensagem="OI A TOD@S"></app-post>
     <app-post amigo="Maria" mensagem="Boa Noite a todos"></app-post>
     <app-post amigo="José" mensagem="mano, o Brasil não presta mesmo"></app-post>
-    <app-post amigo="Camilo" mensagem="VIVA O LIBERALISMO!!!"></app-post>
-    <app-post amigo="Bruna" mensagem="valha cleusa"></app-post>
+    <app-post amigo="Camilo" mensagem="VIVA O LIBERALISMO!!!"></app-post>-->
+    <app-post [post]= "post" 
+      (recebeuLike)="postRecebeuLike($event)">
+    </app-post>
   </div>
 </div>
