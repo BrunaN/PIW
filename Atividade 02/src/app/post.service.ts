@@ -14,17 +14,14 @@ export class PostService{
     };
 
     excluir(id){
-        let aux: Post[] = [];
-        for ( let post of this.posts ){
-            if( post.id != id ){
-                aux.push(post);
+        for ( let i = 0; i < this.posts.length; i++ ){
+            if( this.posts[i].id == id){
+                this.posts.splice(i, 1);
             } 
         }
-        this.posts = aux;
     };
 
     buscarPosts(){
-        console.log(this.posts);
         return this.posts;
     };
 

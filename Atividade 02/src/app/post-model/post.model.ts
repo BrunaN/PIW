@@ -3,9 +3,10 @@ export class Post{
     nomePessoa: string;
     texto: string;
     qtdLikes: number;
+    static instancias: number = 0;
 
     constructor(id, nomePessoa, texto, qtdLikes){
-        this.id = id;
+        this.id = Post.instancias++;
         this.nomePessoa = nomePessoa;
         this.texto = texto;
         this.qtdLikes = qtdLikes;
