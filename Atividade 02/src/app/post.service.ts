@@ -9,6 +9,8 @@ export class PostService{
         new Post(2, "Bruna", "okjjkkki", 0)
     ];
 
+    deuLike = false;
+
     inserir(post:Post){
         this.posts.push(post);
     };
@@ -27,5 +29,12 @@ export class PostService{
 
     adicionarLike(post:Post){
         post.qtdLikes ++;
+        // if (this.deuLike == false){
+        //     post.qtdLikes ++;
+        //     this.deuLike = true;
+        // }else{
+        //     post.qtdLikes --;
+        //     this.deuLike = false;
+        // }
     };
 }
