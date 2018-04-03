@@ -1,24 +1,31 @@
 import { Post } from './../post-model/post.model';
+import { PostService } from '../post.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  styleUrls: ['./post.component.css'],
+  providers: [PostService]
 })
 export class PostComponent implements OnInit {
 
   @Input() post: Post;
   @Output() recebeuLike= new EventEmitter();
 
-  constructor() {}
+  constructor(private postService: PostService) {}
 
   ngOnInit() {
   }
 
   like(){
-    this.post.qtdLikes ++;
-    this.recebeuLike.emit(this.post);
+    this.postService.adicionarLike(this.post);
+    // this.recebeuLike.emit(this.post);
+  }
+
+  delete(){
+    this.postService.excluir(this.post.id);
   }
 
 }

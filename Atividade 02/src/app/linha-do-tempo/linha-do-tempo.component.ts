@@ -1,25 +1,23 @@
 import {Post} from './../post-model/post.model';
+import { PostService } from '../post.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-linha-do-tempo',
   templateUrl: './linha-do-tempo.component.html',
-  styleUrls: ['./linha-do-tempo.component.css']
+  styleUrls: ['./linha-do-tempo.component.css'],
+  providers:[PostService]
 })
 export class LinhaDoTempoComponent implements OnInit {
   
-  @Input() posts: Post[] = [
-    new Post(1, "Bruna", "oi", 0),
-    new Post(2, "Bruna", "okjjkkki", 0)
-  ];
-  
-  constructor() { }
-
+  constructor( private postService:PostService) { }
+  posts : Post [] = [];
   ngOnInit() {
+    this.posts = this.postService.buscarPosts();
   }
   
-  postRecebeuLike(post){
-    console.log(post);
-  }
+  // postRecebeuLike(post){
+  //   console.log(post);
+  // }
   
 }

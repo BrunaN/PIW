@@ -20,7 +20,7 @@ import { routing } from './app.routing';
   ],
   imports: [
     BrowserModule,
-    routing
+    routing,  
   ],
   providers: [],
   bootstrap: [AppComponent]
