@@ -7,6 +7,7 @@ import { NavegadorComponent } from './navegador/navegador.component';
 import { PostComponent } from './post/post.component';
 import { LinhaDoTempoComponent } from './linha-do-tempo/linha-do-tempo.component';
 import { PostInputComponent } from './post-input/post-input.component';
+import { PostService } from './post.service';
 import { routing } from './app.routing';
 
 
@@ -22,7 +23,7 @@ import { routing } from './app.routing';
     BrowserModule,
     routing,  
   ],
-  providers: [],
+  providers:[PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

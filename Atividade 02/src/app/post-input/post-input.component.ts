@@ -4,8 +4,7 @@ import { PostService } from '../post.service';
 @Component({
   selector: 'app-post-input',
   templateUrl: './post-input.component.html',
-  styleUrls: ['./post-input.component.css'],
-  providers: [PostService]
+  styleUrls: ['./post-input.component.css']
 })
 export class PostInputComponent implements OnInit {
 

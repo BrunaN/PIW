@@ -5,13 +5,14 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-linha-do-tempo',
   templateUrl: './linha-do-tempo.component.html',
-  styleUrls: ['./linha-do-tempo.component.css'],
-  providers:[PostService]
+  styleUrls: ['./linha-do-tempo.component.css']
 })
 export class LinhaDoTempoComponent implements OnInit {
   
+  posts : Post [];
+  
   constructor( private postService:PostService) { }
-  posts : Post [] = [];
+  
   ngOnInit() {
     this.posts = this.postService.buscarPosts();
   }

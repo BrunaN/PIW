@@ -4,7 +4,7 @@ import {Post} from './post-model/post.model';
 @Injectable()
 export class PostService{
 
-    posts: Post[] = [
+    posts = [
         new Post(1, "Bruna", "oi", 0),
         new Post(2, "Bruna", "okjjkkki", 0)
     ];
@@ -24,6 +24,7 @@ export class PostService{
     };
 
     buscarPosts(){
+        console.log(this.posts);
         return this.posts;
     };
 
