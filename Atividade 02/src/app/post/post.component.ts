@@ -13,6 +13,8 @@ export class PostComponent implements OnInit {
   @Input() post: Post;
   @Output() recebeuLike= new EventEmitter();
 
+  editarPost: boolean = false;
+  
   constructor(private postService: PostService) {}
 
   ngOnInit() {
@@ -30,5 +32,9 @@ export class PostComponent implements OnInit {
     .subscribe(data => console.log(data),
                 error => console.log(error));
   }
+
+  editar(){}
+  concluir(){}
+  cancelar(){}
 
 }

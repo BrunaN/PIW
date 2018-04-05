@@ -23,13 +23,15 @@ export class PostService{
     };
 
     excluir(id){
-        // for ( let i = 0; i < this.posts.length; i++ ){
-        //     if( this.posts[i].id == id){
-        //         this.posts.splice(i, 1);
-        //     } 
-        // }
         return this.http.delete((this.urlPosts + "/" + id), id)
-            .map((response: Response) => response.text)
+            .map((response: Response) => {
+                for ( let i = 0; i < this.posts.length; i++ ){
+                    if( this.posts[i].id == id){
+                        this.posts.splice(i, 1);
+                    } 
+                }
+                return response.text;
+            })
             .catch((error: Response) => Observable.throw(error));
     };
 
