@@ -9,12 +9,11 @@
 }
 
 .loading{
-    top: 200px;
+    top: 250px;
     left: calc(50% - 50px);
     margin: auto;
     height: 100px;
     width: 100px;
-    border: solid 10px transparent;
     border-top: solid 10px pink;
     border-radius: 50%;
     animation-name: rotate-scale;
@@ -34,4 +33,15 @@
     }100%{
         transform: scale(1) rotate(360deg);
     }
+}
+
+.status{
+    top: 350px;
+    left: calc(50% - 150px);
+    font-size: 20px;
+    text-align: center;
+    width: 300px;
+    position: absolute;
+    z-index: 400;
+    color: #0000;
 }

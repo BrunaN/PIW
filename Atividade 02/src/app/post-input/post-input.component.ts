@@ -15,6 +15,8 @@ export class PostInputComponent implements OnInit {
   textoInput: string = "";
   qtdLikes: number = 0;
 
+  submeter: boolean = false;
+
   constructor( private postService: PostService) { }
 
   ngOnInit() {
@@ -22,8 +24,11 @@ export class PostInputComponent implements OnInit {
 
   submit(event){
     event.preventDefault();
+    this.submeter = true;
     this.postService.inserir(new Post(this.id, this.nomeInput, this.textoInput, this.qtdLikes))
-      .subscribe(data => console.log(data),
+      .subscribe(data => {
+                this.submeter = false;
+                console.log(data)},
                 error => console.log(error));
   }
 }
