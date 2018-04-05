@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NavegadorComponent } from './navegador/navegador.component';
@@ -22,7 +23,8 @@ import { routing } from './app.routing';
   imports: [
     BrowserModule,
     routing,  
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers:[PostService],
   bootstrap: [AppComponent]

@@ -14,7 +14,9 @@ export class LinhaDoTempoComponent implements OnInit {
   constructor( private postService:PostService) { }
   
   ngOnInit() {
-    this.posts = this.postService.buscarPosts();
+    this.postService.buscarPosts() 
+    .subscribe(data => {this.posts = data},
+                error => console.log(error));
   }
   
   // postRecebeuLike(post){

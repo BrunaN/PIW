@@ -19,12 +19,16 @@ export class PostComponent implements OnInit {
   }
 
   like(){
-    this.postService.adicionarLike(this.post);
+    this.postService.adicionarLike(this.post)
+    .subscribe(data => console.log(data),
+                error => console.log(error));
     // this.recebeuLike.emit(this.post);
   }
 
   delete(){
-    this.postService.excluir(this.post.id);
+    this.postService.excluir(this.post.id)
+    .subscribe(data => console.log(data),
+                error => console.log(error));
   }
 
 }

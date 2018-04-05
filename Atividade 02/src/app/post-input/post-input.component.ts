@@ -10,9 +10,10 @@ import {Post} from './../post-model/post.model';
 })
 export class PostInputComponent implements OnInit {
 
-  id: Number;
-  nomeInput: String = "";
-  textoInput: String = "";
+  id: number;
+  nomeInput: string = "";
+  textoInput: string = "";
+  qtdLikes: number = 0;
 
   constructor( private postService: PostService) { }
 
@@ -21,7 +22,8 @@ export class PostInputComponent implements OnInit {
 
   submit(event){
     event.preventDefault();
-    this.postService.inserir(new Post(this.id, this.nomeInput, this.textoInput, 0));
+    this.postService.inserir(new Post(this.id, this.nomeInput, this.textoInput, this.qtdLikes))
+      .subscribe(data => console.log(data),
+                error => console.log(error));
   }
-
 }
