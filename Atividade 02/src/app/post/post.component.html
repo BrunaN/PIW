@@ -4,33 +4,34 @@
     </div>
     <div class="panel-body">
         <div *ngIf="!editarPost">{{ post.texto }}</div>
-        <textarea *ngIf="editarPost" [(ngModel)] = "post.texto" rows="3" class="form-control" ></textarea>
+        <textarea *ngIf="editarPost" [(ngModel)]="post.texto" rows="3" class="form-control"></textarea>
     </div>
     <div class="panel-footer">
         <div *ngIf="!editarPost">
-            <button type="button" class="btn btn-default" 
-                (click)="like()">
+            <button type="button" class="btn btn-default" (click)="like()">
                 <span class="glyphicon glyphicon-thumbs-up"></span>
-                {{ post.qtdLikes}}
+                <span *ngIf="post.qtdLikes > 0">
+                    {{ post.qtdLikes}}
+                </span>
             </button>
-            <button type="button" class="btn btn-default"
-                (click)="delete()">
+            <button type="button" class="btn btn-default" (click)="delete()">
                 <span class="glyphicon glyphicon-trash"></span>
             </button>
-            <button type="button" class="btn btn-default"
-                (click)="editar()">
+            <button type="button" class="btn btn-default" (click)="editar()">
                 <span class="glyphicon glyphicon-pencil"></span>
             </button>
         </div>
         <div *ngIf="editarPost">
-            <button type="button" class="btn btn-default"
-                (click)="concluir()">
+            <button type="button" class="btn btn-default" (click)="concluir()">
                 <span class="glyphicon glyphicon-ok"></span>
             </button>
-            <button type="button" class="btn btn-default"
-                (click)="cancelar()">
+            <button type="button" class="btn btn-default" (click)="cancelar()">
                 <span class="glyphicon glyphicon-remove"></span>
             </button>
+        </div>
+        <div *ngIf="concluido"
+            class="alert alert-success" role="alert">
+            O texto foi alterado com sucesso!
         </div>
     </div>
 </div>

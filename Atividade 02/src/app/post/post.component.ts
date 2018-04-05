@@ -14,6 +14,7 @@ export class PostComponent implements OnInit {
   @Output() recebeuLike= new EventEmitter();
 
   editarPost: boolean = false;
+  concluido: boolean = false;
   
   constructor(private postService: PostService) {}
 
@@ -21,10 +22,10 @@ export class PostComponent implements OnInit {
   }
 
   like(){
-    this.postService.adicionarLike(this.post)
+    this.post.qtdLikes++;
+    this.postService.editarPost(this.post)
     .subscribe(data => console.log(data),
                 error => console.log(error));
-    // this.recebeuLike.emit(this.post);
   }
 
   delete(){
@@ -33,8 +34,21 @@ export class PostComponent implements OnInit {
                 error => console.log(error));
   }
 
-  editar(){}
-  concluir(){}
-  cancelar(){}
+  editar(){
+    this.editarPost = true;
+  }
+
+  concluir(){
+    this.postService.editarPost(this.post)
+    .subscribe(data => {
+                this.concluido = true;
+                this.editarPost = false;
+                console.log(data)},
+                error => console.log(error));
+  }
+
+  cancelar(){
+    this.editarPost = false;
+  }
 
 }

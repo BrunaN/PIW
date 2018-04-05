@@ -40,14 +40,14 @@ export class PostService{
             .map((response: Response) => {
                 this.posts = [];
                 for( let post of response.json()){
-                    this.posts.push(new Post(post.id, post.nomePessoa, post.texto, post.qtdlikes))
+                    this.posts.push(new Post(post.id, post.nomePessoa, post.texto, post.qtdLikes))
                 }
                 return this.posts;
             })
             .catch((error: Response) => Observable.throw(error));
     };
 
-    adicionarLike(post:Post){
-        return this.http.put((this.urlPosts + "/" + post.id), {qtdLikes : post.qtdLikes++})
+    editarPost(post:Post){
+        return this.http.put((this.urlPosts + "/" + post.id), post)
     };
 }
