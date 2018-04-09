@@ -1,4 +1,4 @@
-import { Routes, RouterModule} from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { LinhaDoTempoComponent } from './linha-do-tempo/linha-do-tempo.component';
 import  { PostInputComponent } from './post-input/post-input.component';
 

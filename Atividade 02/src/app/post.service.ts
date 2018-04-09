@@ -12,7 +12,7 @@ export class PostService{
     urlPosts: string = "http://rest.learncode.academy/api/bruna/posts";
 
     constructor(private http: Http) {};
-    
+
     posts : Post[] = [];
 
     inserir(post:Post){
@@ -28,7 +28,7 @@ export class PostService{
                 for ( let i = 0; i < this.posts.length; i++ ){
                     if( this.posts[i].id == id){
                         this.posts.splice(i, 1);
-                    } 
+                    }
                 }
                 return response.text;
             })
