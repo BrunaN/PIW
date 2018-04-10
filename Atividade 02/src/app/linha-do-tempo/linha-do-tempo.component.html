@@ -8,4 +8,7 @@
         <!-- (recebeuLike)="postRecebeuLike($event)" -->
     </app-post>
   </div>
+  <div *ngIf="!loading && (!posts || posts.length == 0)" class="col-md-8 col-md-offset-2">
+    Nenhum post a ser exibido!
+  </div>
 </div>

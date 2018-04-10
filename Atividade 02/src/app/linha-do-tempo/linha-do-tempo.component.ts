@@ -8,19 +8,22 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./linha-do-tempo.component.css']
 })
 export class LinhaDoTempoComponent implements OnInit {
-  
-  posts : Post [];
-  
+
+  posts: Post [];
+  loading: boolean;
+
   constructor( private postService:PostService) { }
-  
+
   ngOnInit() {
-    this.postService.buscarPosts() 
-    .subscribe(data => {this.posts = data},
+    this.loading = true;
+    this.postService.buscarPosts()
+    .subscribe(data => {this.posts = data;
+                        this.loading = false;},
                 error => console.log(error));
   }
-  
+
   // postRecebeuLike(post){
   //   console.log(post);
   // }
-  
+
 }

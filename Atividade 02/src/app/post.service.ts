@@ -16,9 +16,13 @@ export class PostService{
     posts : Post[] = [];
 
     inserir(post:Post){
-        this.posts.push(post);
         return this.http.post(this.urlPosts, post)
-            .map((response: Response) => response.json())
+            .map((response: Response) => {
+                let aux = response.json();
+                post.id = aux.id;
+                this.posts.push(post);
+                return aux;
+            })
             .catch((error: Response) => Observable.throw(error));
     };
 
